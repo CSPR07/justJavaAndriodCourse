@@ -31,7 +31,9 @@ public class MainActivity extends Activity {
     }
 
     public void submitOrder(View view) {
-        displayPrice(quantity*5);
+        String PriceMessage= "Price $" + (quantity*5);
+        PriceMessage = PriceMessage + "\nThank you!";
+        displayMessage(PriceMessage);
     }
 
     /**
@@ -49,5 +51,13 @@ public class MainActivity extends Activity {
     private void displayPrice(int number) {
         TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
         priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
+    }
+
+    /**
+     * This method displays the given text on the screen.
+     */
+    private void displayMessage(String message) {
+        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
+        priceTextView.setText(message);
     }
 }
